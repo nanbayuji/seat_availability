@@ -1,0 +1,35 @@
+.list {
+  display: flex;
+  overflow: hidden;
+}
+
+.list h2 {
+  margin: 10px 0;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.seat {
+  width: 25%;
+  margin: 20px;
+  border: 2px solid gray;
+}
+
+.check {
+  padding: 3px 0;
+  margin: 5px;
+  font-size: 15px;
+  text-align: center;
+  color: #fff;
+  background-color: #23628f;
+  cursor: pointer;
+}
+
+.red {
+  background-color: #e33a6d;
+}
+
+.green {
+  background-color: #7bc52e;
+}

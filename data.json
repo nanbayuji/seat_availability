@@ -1,0 +1,5 @@
+[
+  {"id":"a_seat", "crowded":"yes"},
+  {"id":"b_seat", "crowded":"no"},
+  {"id":"c_seat", "crowded":"no"}
+]

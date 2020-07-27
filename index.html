@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>空席状況</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <ul class="list">
+    <li class="seat" id="a_seat">
+      <h2>A席</h2>
+      <p class="check">空席状況を確認</p>
+    </li>
+    <li class="seat" id="b_seat">
+      <h2>B席</h2>
+      <p class="check">空席状況を確認</p>
+    </li>
+    <li class="seat" id="c_seat">
+      <h2>C席</h2>
+      <p class="check">空席状況を確認</p>
+    </li>
+  </ul>
+
+  <script src="jquery.js"></script>
+  <script>
+    'use strict';
+
+    $(document).ready(function(){
+      //ファイルの読み込み
+      $.ajax({url: 'data.json', dataType: 'json'})
+      .done(function(data){
+        data.forEach(function(item, index){
+          if(item.crowded === 'yes'){
+            const idName = '#' + item.id;
+            $(idName).find('.check').addClass('crowded');
+          }
+        })
+      })
+      .fail(function(){
+        window.alert('読み込みエラー');
+      });
+
+      //クリックされたら空き席状況を表示
+      $('.check').on('click', function(){
+        if($(this).hasClass('crowded')){
+          $(this).text('満席').addClass('red');
+        }else{
+          $(this).text('席あります').addClass('green');
+        }
+      })
+    });
+
+  </script>
+</body>
+</html>
